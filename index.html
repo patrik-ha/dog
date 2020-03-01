@@ -4,11 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <title>Dog</title>
 </head>
 
 <body>
-    <img src="https://eb8.petinsurance.com/-/media/all-phz-images/2017-images-850/cool-summer-gadgets-pets-hero850.jpg">
+    <div class="Container">
+        <div class="row">
+            <div class="col-md">
+                <img id="dog" onclick="clickDog()" src="sad.png">
+                <p id="pet-count">0</p>
+            </div>
+        </div>
+    </div>
 </body>
+<script>
+    var petCount = 0;
+    var timeout;
+    function clickDog() {
+        clearTimeout(timeout)
+        petCount++;
+        $("#dog").attr("src", "happy.png");
+        $("#pet-count").text(petCount);
+        timeout = setTimeout(function () {
+            $("#dog").attr("src", "sad.png");
+        }, 500);
+    }   
+</script>
 
 </html>
