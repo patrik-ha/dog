@@ -15,7 +15,8 @@
     <div class="Container">
         <div class="row">
             <div class="col-md">
-                <img id="dog" onclick="clickDog()" src="sad_dog.png">
+                <img id="sad_dog" onclick="clickDog()" src="sad_dog.png">
+                <img id="happy_dog" style="display:none;" onclick="clickDog()" src="happy_dog.png">
                 <p id="pet-count">0</p>
             </div>
         </div>
@@ -27,10 +28,13 @@
     function clickDog() {
         clearTimeout(timeout)
         petCount++;
+        $("#sad_dog").css("display", "none");
+        $("#happy_dog").css("display", "block");
         $("#dog").attr("src", "happy_dog.png");
         $("#pet-count").text(petCount);
         timeout = setTimeout(function () {
-            $("#dog").attr("src", "sad_dog.png");
+            $("#sad_dog").css("display", "block");
+            $("#happy_dog").css("display", "none");
         }, 500);
     }   
 </script>
